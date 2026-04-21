@@ -1,0 +1,22 @@
+import telebot
+import random
+
+bot = telebot.TeleBot(".")
+
+@bot.message_handler(commands=['start'])
+def send_welcome(message):
+    bot.reply_to(message,"вещи с которых можно начать: 1. сортировать мусор (команды 1, 2, 3) 2. выкидывать мусор только в урны 3. если видите мусор не в урне то положить в урну ")
+
+@bot.message_handler(commands=['1'])
+def send_welcome(message):
+    bot.reply_to(message,"Синий бак: пластик, макулатура, металл, стекло")
+
+@bot.message_handler(commands=['2'])
+def send_welcome(message):
+    bot.reply_to(message,"Серый бак: пищевые отходы, средства гигиены, коробки, пластиковые вилки или тарелки")
+
+@bot.message_handler(commands=['3'])
+def send_welcome(message):
+    bot.reply_to(message,"что нельзя выбрасывать не в тот и не в тот бак: Батарейки и аккумуляторы, Лампочки, Старая электроника, Лекарства")
+
+bot.polling()
